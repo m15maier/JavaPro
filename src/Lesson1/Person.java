@@ -5,12 +5,43 @@ public class Person {
     int age;
     int height;
     int weight;
+    private double money;
 
-    public Person(String name, int age, int height, int weight) {
+
+    public String getName() {
+        return name;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public double getMoney() {
+        return money;
+    }
+
+    public void setMoney(double money) {
+        this.money = money;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Person(String name, int age, int height, int weight, int money) {
         this.name = name;
         this.age = age;
         this.height = height;
         this.weight = weight;
+        this.money = money;
     }
 
     public void info() {
@@ -18,7 +49,7 @@ public class Person {
         System.out.println("Возраст: " + age);
         System.out.println("Рост: " + height);
         System.out.println("Вес: " + weight);
-        System.out.println(" ");
+        System.out.println("Money: " + money);
     }
 
     public void go() {
@@ -27,6 +58,10 @@ public class Person {
         } else {
             System.out.println("Работаю");
         }
-        System.out.println(" ");
+    }
+
+public double money() {
+        return money;
     }
 }
+
