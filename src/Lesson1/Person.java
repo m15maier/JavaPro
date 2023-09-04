@@ -60,8 +60,12 @@ public class Person {
         }
     }
 
-public double money() {
+    public double money() {
         return money;
     }
-}
+
+    public void die() {
+        System.out.println("Человек погиб");
+    }
+ }
 

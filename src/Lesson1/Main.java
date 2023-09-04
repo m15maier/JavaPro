@@ -24,15 +24,19 @@ public class Main {
         System.out.println(" --- Задание 2 ---");
         System.out.println(" ");
 
-        Pension pension1 = new Pension("Pension1", true, new Date(2020-01-01), 2000);
-        Pension pension2 = new Pension("Pension2", false, new Date(2021-02-02), 20);
-        Pension pension3 = new Pension("Pension3", true, new Date(2022-03-03), 3000);
+        Pension pension1 = new Pension("Pension1", true, new Date(2020-01-01), 200000);
+        Pension pension2 = new Pension("Pension2", false, new Date(2021-02-02), 300000);
+        Pension pension3 = new Pension("Pension3", true, new Date(2022-03-03), 400000);
 
         pension1.info();
         pension1.go();
 
+        System.out.println(" ");
+
         pension2.info();
         pension2.go();
+
+        System.out.println(" ");
 
         pension3.info();
         pension3.go();

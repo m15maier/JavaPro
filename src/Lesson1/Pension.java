@@ -4,10 +4,10 @@ import java.util.Date;
 
 public class Pension {
 
-    String name;
-    boolean state;
-    Date date;
-    int users;
+    private String name;
+    private boolean state;
+    private Date date;
+    private int users;
 
     public Pension(String name, boolean state, Date date, int users) {
         this.name = name;
@@ -53,10 +53,10 @@ public class Pension {
     public void go() {
         if (state == true) {
             System.out.println("Фонд государственный");
-            System.out.println("Количество участников: " + users);
+            System.out.println("Количество участников: " + users / 1000 + " тысяч человек");
         }
         else {
-            System.out.println("Количество участников: " + users);
+            System.out.println("Количество участников: " + users + " человек");
         }
     }
 }
