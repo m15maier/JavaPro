@@ -59,4 +59,36 @@ public class Pension {
             System.out.println("Количество участников: " + users + " человек");
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Pension)) return false;
+
+        Pension pension = (Pension) o;
+
+        if (state != pension.state) return false;
+        if (users != pension.users) return false;
+        if (!name.equals(pension.name)) return false;
+        return date.equals(pension.date);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + (state ? 1 : 0);
+        result = 31 * result + date.hashCode();
+        result = 31 * result + users;
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Pension{" +
+                "name='" + name + '\'' +
+                ", state=" + state +
+                ", date=" + date +
+                ", users=" + users +
+                '}';
+    }
 }

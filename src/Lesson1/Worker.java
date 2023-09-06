@@ -1,5 +1,7 @@
 package Lesson1;
 
+import java.util.Objects;
+
 public class Worker extends Person {
     private int minSalary;
     private int maxSalary;
@@ -29,5 +31,41 @@ public class Worker extends Person {
     @Override
     public void die() {
         System.out.println("Этот человек не дожил до пенсии ");
+    }
+
+    @Override
+    public void die(int years) {
+        System.out.println("Этот человек не доживет до пенсии и умрет через" + years + "лет");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Worker)) return false;
+
+        Worker worker = (Worker) o;
+
+        if (minSalary != worker.minSalary) return false;
+        return maxSalary == worker.maxSalary;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = minSalary;
+        result = 31 * result + maxSalary;
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Worker{" +
+                "minSalary=" + minSalary +
+                ", maxSalary=" + maxSalary +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", years=" + years +
+                '}';
     }
 }
