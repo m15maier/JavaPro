@@ -1,6 +1,6 @@
 package Lesson1;
 
-public class Person {
+public abstract class Person {
     String name;
     int age;
     int height;
@@ -64,6 +64,8 @@ public class Person {
     public double money() {
         return money;
     }
+
+    public abstract void AbleToCalculatePension();
 
     public void die() {
         System.out.println("Человек погиб");

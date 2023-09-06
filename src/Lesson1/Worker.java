@@ -1,10 +1,20 @@
 package Lesson1;
 
-import java.util.Objects;
-
-public class Worker extends Person {
+public class Worker extends Person implements AbleToCalculatePension {
     private int minSalary;
     private int maxSalary;
+
+
+    @Override
+    public void AbleToCalculatePension() {
+        int averageSalary  = (minSalary + maxSalary) / 2;
+        System.out.println("Средняя зарплата" + averageSalary);
+
+        int lastPension = (averageSalary * 100 / 25);
+        System.out.println("Последняя пенсия" + lastPension);
+
+    }
+
 
     public Worker(String name, int age, int height, int weight, int money, int minSalary, int maxSalary) {
         super(name, age, height, weight, money);
@@ -69,3 +79,4 @@ public class Worker extends Person {
                 '}';
     }
 }
+
