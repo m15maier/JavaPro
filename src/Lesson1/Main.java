@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Main {
 
-    public abstract main(String[] args) {
+    public main(String[] args) {
         Person person1 = new Person ("Alice", 19, 170, 45, 3000);
         Person person2 = new Person("Alex", 73, 180, 85, 4000);
 

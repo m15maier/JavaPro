@@ -1,6 +1,6 @@
 package Lesson1;
 
-public class Pensioner extends Person {
+public abstract class Pensioner extends Person {
     private double pensioner;
 
     public Pensioner(String name, int age, int height, int weight, int money, double pension, Gender Gender) {
@@ -24,11 +24,6 @@ public class Pensioner extends Person {
     @Override
     public void die() {
         System.out.println("Этот пенсионер умер, он заработал: " + (getAge() - 50) + pensioner);
-    }
-
-    @Override
-    public abstract die(int years) {
-        System.out.println("Этот пенсионер умрет через" + years + "лет");
     }
 
     @Override

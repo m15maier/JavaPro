@@ -60,10 +60,22 @@ public class Pension {
         }
     }
 
-    public double calculatePensionFor(AbleToCalculatePension obj)
+    public double calculatePensionFor(AbleToCalculatePension person) {
+        return 0;
+    }
 
+    public Pension (boolean state) {
+        this.state = state;
+    }
 
-
+    private double calculatePensionFor(AbleToCalculatePension) {
+        if (state) {
+            AbleToCalculatePension person = null;
+            return person.calculatePension();
+        } else {
+            return 0;
+        }
+    }
 
     @Override
     public boolean equals(Object o) {

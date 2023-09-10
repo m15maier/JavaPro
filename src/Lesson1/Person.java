@@ -7,7 +7,11 @@ public abstract class Person {
     int weight;
     private double money;
     int years;
-    enum Gender gender;
+
+    private enum Gender {
+        MALE,
+        FEMALE
+    }
 
 
     public String getName() {
@@ -38,10 +42,9 @@ public abstract class Person {
         return age;
     }
 
-    public enum Gender {
-        MALE,
-        FEMALE
-    }
+
+
+
 
     public Person(String name, int age, int height, int weight, int money, Gender gender) {
         this.name = name;
@@ -49,7 +52,6 @@ public abstract class Person {
         this.height = height;
         this.weight = weight;
         this.money = money;
-        this.gender = gender;
     }
 
     public void info() {
@@ -80,6 +82,9 @@ public abstract class Person {
     public abstract die(int years) {
 
     }
+
+    @Override
+    public Person(int years);
 
     @Override
     public boolean equals(Object o) {
