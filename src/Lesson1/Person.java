@@ -8,7 +8,7 @@ public abstract class Person {
     private double money;
     int years;
 
-    private enum Gender {
+    public enum Gender {
         MALE,
         FEMALE
     }

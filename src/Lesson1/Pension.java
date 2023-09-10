@@ -51,7 +51,7 @@ public class Pension {
     }
 
     public void go() {
-        if (state == true) {
+        if (state) {
             System.out.println("Фонд государственный");
             System.out.println("Количество участников: " + users / 1000 + " тысяч человек");
         }
@@ -60,20 +60,13 @@ public class Pension {
         }
     }
 
-    public double calculatePensionFor(AbleToCalculatePension person) {
-        return 0;
-    }
-
-    public Pension (boolean state) {
-        this.state = state;
-    }
-
     private double calculatePensionFor(AbleToCalculatePension) {
         if (state) {
             AbleToCalculatePension person = null;
             return person.calculatePension();
         } else {
             return 0;
+            System.out.println("Деньги из фонда украли.");
         }
     }
 

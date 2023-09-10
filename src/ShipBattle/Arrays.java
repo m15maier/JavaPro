@@ -1,8 +1,6 @@
 package ShipBattle;
 
-import java.util.Arrays;
-
-public class Main {
+public class Arrays {
     public static void main(String[] args) {
         int[] array = new int[10];
         array[5] = 999;
@@ -27,9 +25,9 @@ public class Main {
         a[1][1] += b [1][1];
 
 
-        System.out.println(Arrays.toString(array));
-        System.out.println(Arrays.deepToString(secondArray));
-        System.out.println(Arrays.deepToString(thirdArray));
+        System.out.println(java.util.Arrays.toString(array));
+        System.out.println(java.util.Arrays.deepToString(secondArray));
+        System.out.println(java.util.Arrays.deepToString(thirdArray));
 
         System.out.println("Hello world!");
 
