@@ -60,6 +60,11 @@ public class Pension {
         }
     }
 
+    public double calculatePensionFor(AbleToCalculatePension obj)
+
+
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
