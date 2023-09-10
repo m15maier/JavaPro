@@ -5,8 +5,8 @@ import java.util.Date;
 
 public class Main {
 
-    public static void main(String[] args) {
-        Person person1 = new Person("Alice", 19, 170, 45, 3000);
+    public abstract main(String[] args) {
+        Person person1 = new Person ("Alice", 19, 170, 45, 3000);
         Person person2 = new Person("Alex", 73, 180, 85, 4000);
 
         person1.info();
@@ -65,7 +65,5 @@ public class Main {
     public String toString() {
         return super.toString();
     }
-
-
 
 }

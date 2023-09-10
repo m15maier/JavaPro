@@ -3,8 +3,8 @@ package Lesson1;
 public class Pensioner extends Person {
     private double pensioner;
 
-    public Pensioner(String name, int age, int height, int weight, int money, double pension) {
-        super(name, age, height, weight, money);
+    public Pensioner(String name, int age, int height, int weight, int money, double pension, Gender Gender) {
+        super(name, age, height, weight, money, Gender);
         this.pensioner = pension;
     }
 
@@ -27,7 +27,7 @@ public class Pensioner extends Person {
     }
 
     @Override
-    public void die(int years) {
+    public abstract die(int years) {
         System.out.println("Этот пенсионер умрет через" + years + "лет");
     }
 

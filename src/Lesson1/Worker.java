@@ -1,8 +1,8 @@
 package Lesson1;
 
 public class Worker extends Person implements AbleToCalculatePension {
-    private int minSalary;
-    private int maxSalary;
+    public int minSalary;
+    public int maxSalary;
 
 
     @Override
@@ -16,8 +16,8 @@ public class Worker extends Person implements AbleToCalculatePension {
     }
 
 
-    public Worker(String name, int age, int height, int weight, int money, int minSalary, int maxSalary) {
-        super(name, age, height, weight, money);
+    public Worker(String name, int age, int height, int weight, int money, int minSalary, int maxSalary, Gender gender) {
+        super(name, age, height, weight, money, gender);
         this.minSalary = minSalary;
         this.maxSalary = maxSalary;
     }
@@ -44,7 +44,7 @@ public class Worker extends Person implements AbleToCalculatePension {
     }
 
     @Override
-    public void die(int years) {
+    public abstract die(int years) {
         System.out.println("Этот человек не доживет до пенсии и умрет через" + years + "лет");
     }
 

@@ -7,6 +7,7 @@ public abstract class Person {
     int weight;
     private double money;
     int years;
+    enum Gender gender;
 
 
     public String getName() {
@@ -37,12 +38,18 @@ public abstract class Person {
         return age;
     }
 
-    public Person(String name, int age, int height, int weight, int money) {
+    public enum Gender {
+        MALE,
+        FEMALE
+    }
+
+    public Person(String name, int age, int height, int weight, int money, Gender gender) {
         this.name = name;
         this.age = age;
         this.height = height;
         this.weight = weight;
         this.money = money;
+        this.gender = gender;
     }
 
     public void info() {
@@ -61,8 +68,7 @@ public abstract class Person {
         }
     }
 
-    public double money() {
-        return money;
+    public double money() { return money;
     }
 
     public abstract void AbleToCalculatePension();
@@ -71,7 +77,7 @@ public abstract class Person {
         System.out.println("Человек погиб");
     }
 
-    public void die(int years) {
+    public abstract die(int years) {
 
     }
 
@@ -115,5 +121,7 @@ public abstract class Person {
                 ", years=" + years +
                 '}';
     }
+
+
 }
 
