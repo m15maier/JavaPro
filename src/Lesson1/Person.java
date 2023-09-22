@@ -1,6 +1,9 @@
 package Lesson1;
 
+import java.util.Objects;
+
 public abstract class Person {
+
     String name;
     int age;
     int height;
@@ -8,11 +11,57 @@ public abstract class Person {
     private double money;
     int years;
 
-    public enum Gender {
-        MALE,
-        FEMALE
+    private Gender gender;
+
+    private Person dad;
+
+    public Gender getGender() {
+        return gender;
     }
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "gender=" + gender +
+                '}';
+    }
+
+    public abstract void die(int years);
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+
+        Person person = (Person) o;
+
+        if (age != person.age) return false;
+        if (height != person.height) return false;
+        if (weight != person.weight) return false;
+        if (Double.compare(person.money, money) != 0) return false;
+        if (years != person.years) return false;
+        if (!Objects.equals(name, person.name)) return false;
+        return gender.equals(person.gender);
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = name != null ? name.hashCode() : 0;
+        result = 31 * result + age;
+        result = 31 * result + height;
+        result = 31 * result + weight;
+        temp = Double.doubleToLongBits(money);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + years;
+        result = 31 * result + gender.hashCode();
+        return result;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
 
     public String getName() {
         return name;
@@ -52,6 +101,7 @@ public abstract class Person {
         this.height = height;
         this.weight = weight;
         this.money = money;
+        this.gender = gender;
     }
 
     public void info() {
@@ -75,58 +125,13 @@ public abstract class Person {
 
     public abstract void AbleToCalculatePension();
 
+    public abstract double calculatePension(Gender gender);
+
     public void die() {
         System.out.println("Человек погиб");
     }
 
-    public abstract die(int years) {
 
-    }
-
-    @Override
-    public Person(int years);
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Person)) return false;
-
-        Person person = (Person) o;
-
-        if (age != person.age) return false;
-        if (height != person.height) return false;
-        if (weight != person.weight) return false;
-        if (Double.compare(person.money, money) != 0) return false;
-        if (years != person.years) return false;
-        return name.equals(person.name);
-    }
-
-    @Override
-    public int hashCode() {
-        int result;
-        long temp;
-        result = name.hashCode();
-        result = 31 * result + age;
-        result = 31 * result + height;
-        result = 31 * result + weight;
-        temp = Double.doubleToLongBits(money);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + years;
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", height=" + height +
-                ", weight=" + weight +
-                ", money=" + money +
-                ", years=" + years +
-                '}';
-    }
-
-
+    public abstract double calculatorPension();
 }
 

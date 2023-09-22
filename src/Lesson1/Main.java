@@ -1,13 +1,18 @@
 package Lesson1;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class Main {
 
-    public abstract main(String[] args) {
-        Person person1 = new Person ("Alice", 19, 170, 45, 3000);
-        Person person2 = new Person("Alex", 73, 180, 85, 4000);
+    public static void main(String[] args) {
+        Person person1 = new Person ("Alice", 19, 170, 45, 3000, Gender.FEMALE);
+        Person person2 = new Person("Alex", 73, 180, 85, 4000, Gender.MALE);
+
+        double result = pension1.calculatePensionFor(Alice);
+        System.out.println(result);
+
+        double result = pension1.calculatePensionFor(Alex);
+        System.out.println(result);
 
         person1.info();
         person1.go();
@@ -24,9 +29,9 @@ public class Main {
         System.out.println(" --- Задание 2 ---");
         System.out.println(" ");
 
-        Pension pension1 = new Pension("Pension1", true, new Date(2020-01-01), 200000);
-        Pension pension2 = new Pension("Pension2", false, new Date(2021-02-02), 300000);
-        Pension pension3 = new Pension("Pension3", true, new Date(2022-03-03), 400000);
+        PensionFund pension1 = new PensionFund("Pension1", true, new Date(2020-01-01), 200000);
+        PensionFund pension2 = new PensionFund("Pension2", false, new Date(2021-02-02), 300000);
+        PensionFund pension3 = new PensionFund("Pension3", true, new Date(2022-03-03), 400000);
 
         pension1.info();
         pension1.go();
@@ -40,6 +45,11 @@ public class Main {
 
         pension3.info();
         pension3.go();
+
+
+
+
+        System.out.println(worker.calculatePension());
     }
 
     public Main() {
