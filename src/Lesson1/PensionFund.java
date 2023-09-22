@@ -2,14 +2,14 @@ package Lesson1;
 
 import java.util.Date;
 
-public class Pension {
+public class PensionFund {
 
-    private String name;
-    private boolean state;
-    private Date date;
+    public String name;
+    public boolean state;
+    public Date date;
     private int users;
 
-    public Pension(String name, boolean state, Date date, int users) {
+    public PensionFund(String name, boolean state, Date date, int users) {
         this.name = name;
         this.state = state;
         this.date = date;
@@ -60,22 +60,21 @@ public class Pension {
         }
     }
 
-    private double calculatePensionFor(AbleToCalculatePension) {
+    public double calculatePensionFor(AbleToCalculatePension obj) {
         if (state) {
-            AbleToCalculatePension person = null;
-            return person.calculatePension();
+            return obj.calculatePension();
         } else {
-            return 0;
             System.out.println("Деньги из фонда украли.");
+            return 0;
         }
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Pension)) return false;
+        if (!(o instanceof PensionFund)) return false;
 
-        Pension pension = (Pension) o;
+        PensionFund pension = (PensionFund) o;
 
         if (state != pension.state) return false;
         if (users != pension.users) return false;

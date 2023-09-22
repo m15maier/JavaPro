@@ -1,9 +1,15 @@
 package Lesson1;
 
 public class Worker extends Person implements AbleToCalculatePension {
-    public int minSalary;
-    public int maxSalary;
 
+    private final static double PERCENT_OF_PENSION = 0.25;
+    private int minSalary;
+    private int maxSalary;
+
+
+    public Worker(String name, int age, int height, int weight, int money, int minSalary, int maxSalary, Gender gender) {
+        super(name, age, height, weight, money, gender);
+    }
 
     @Override
     public void AbleToCalculatePension() {
@@ -15,12 +21,11 @@ public class Worker extends Person implements AbleToCalculatePension {
 
     }
 
-
-    public Worker(String name, int age, int height, int weight, int money, int minSalary, int maxSalary, Gender gender) {
-        super(name, age, height, weight, money, gender);
-        this.minSalary = minSalary;
-        this.maxSalary = maxSalary;
+    @Override
+    public double calculatePension(Gender gender) {
+        return 0;
     }
+
 
     public int getMinSalary() {
         return minSalary;
@@ -44,7 +49,7 @@ public class Worker extends Person implements AbleToCalculatePension {
     }
 
     @Override
-    public abstract die(int years) {
+    public void die(int years) {
         System.out.println("Этот человек не доживет до пенсии и умрет через" + years + "лет");
     }
 
@@ -77,6 +82,32 @@ public class Worker extends Person implements AbleToCalculatePension {
                 ", weight=" + weight +
                 ", years=" + years +
                 '}';
+    }
+
+    @Override
+    public double calculatorPension() {
+        Gender gender = getGender();
+        if (gender == null) {
+            return 0.0;
+        }
+
+
+        double averageSalary = 0.0;
+
+        if (gender.equals(Gender.MALE)) {
+            averageSalary = CalculatorUtils.calculateAverage(minSalary, maxSalary);
+        }
+        else {
+            averageSalary = CalculatorUtils.calculateAverage(minSalary / 2, maxSalary / 2);
+        }
+
+        return averageSalary * PERCENT_OF_PENSION;
+
+    }
+
+    @Override
+    public double calculatePension() {
+        return 0;
     }
 }
 
