@@ -30,4 +30,19 @@ public boolean checkCell(int row, int column) {
                 "cells=" + Arrays.deepToString(cells) +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Field)) return false;
+
+        Field field = (Field) o;
+
+        return Arrays.deepEquals(cells, field.cells);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.deepHashCode(cells);
+    }
 }

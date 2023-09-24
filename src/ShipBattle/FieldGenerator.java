@@ -3,16 +3,19 @@ package ShipBattle;
 import java.util.Random;
 
 public class FieldGenerator {
+    private static final int SizeOfField = 10;
+    private static final int Percents = 100;
+    private static final int SuccessPercent = 50;
 
     public Field generateField() {
         Random random = new Random();
 
-        Cell[][] cells = new Cell[10][10];
+        Cell[][] cells = new Cell[SizeOfField][SizeOfField];
 
-        for (int i =0; i < 10; i++) {
-            for (int j = 0; j< 10; j++) {
-                int number = random.nextInt(100); // 0-99
-                boolean isShip = (number < 10); // true, сли будет значение от 0 до 9
+        for (int i =0; i < SizeOfField; i++) {
+            for (int j = 0; j< SizeOfField; j++) {
+                int number = random.nextInt(Percents); // 0-99
+                boolean isShip = (number < SuccessPercent); // true, сли будет значение от 0 до 9
                 cells[i][j] = new Cell(isShip);
             }
         }
