@@ -1,17 +1,37 @@
 package Lesson1;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Worker extends Person implements AbleToCalculatePension {
 
     private final static double PERCENT_OF_PENSION = 0.25;
     private int minSalary;
     private int maxSalary;
 
+    public enum Professions {
+        BUILDER,
+        PROGRAMMER,
+        MECHANIC,
+        ARTIST,
+        CHEF,
+        TEACHER,
+        DENTIST,
+        FARMER,
+        BARBER,
+        PILOT
+    }
+
+    private Set<Professions> professions;
+
 
     public Worker(String name, int age, int height, int weight, double money, Gender gender, int minSalary, int maxSalary) {
         super(name, age, height, weight, money, gender);
         this.minSalary = minSalary;
         this.maxSalary = maxSalary;
+        professions = new HashSet<>();
     }
+
 
     @Override
     public void AbleToCalculatePension() {
@@ -26,6 +46,14 @@ public class Worker extends Person implements AbleToCalculatePension {
     @Override
     public double calculatePension(Gender gender) {
         return 0;
+    }
+
+    public Set<Professions> getProfessions() {
+        return professions;
+    }
+
+    public void setProfessions(Set<Professions> professions) {
+        this.professions = professions;
     }
 
     public int getMinSalary() {
