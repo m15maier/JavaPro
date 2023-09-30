@@ -7,13 +7,15 @@ public class Worker extends Person implements AbleToCalculatePension {
     private int maxSalary;
 
 
-    public Worker(String name, int age, int height, int weight, int money, int minSalary, int maxSalary, Gender gender) {
+    public Worker(String name, int age, int height, int weight, double money, Gender gender, int minSalary, int maxSalary) {
         super(name, age, height, weight, money, gender);
+        this.minSalary = minSalary;
+        this.maxSalary = maxSalary;
     }
 
     @Override
     public void AbleToCalculatePension() {
-        int averageSalary  = (minSalary + maxSalary) / 2;
+        int averageSalary = (minSalary + maxSalary) / 2;
         System.out.println("Средняя зарплата" + averageSalary);
 
         int lastPension = (averageSalary * 100 / 25);
@@ -25,7 +27,6 @@ public class Worker extends Person implements AbleToCalculatePension {
     public double calculatePension(Gender gender) {
         return 0;
     }
-
 
     public int getMinSalary() {
         return minSalary;
@@ -96,12 +97,12 @@ public class Worker extends Person implements AbleToCalculatePension {
 
         if (gender.equals(Gender.MALE)) {
             averageSalary = CalculatorUtils.calculateAverage(minSalary, maxSalary);
-        }
-        else {
+        } else {
             averageSalary = CalculatorUtils.calculateAverage(minSalary / 2, maxSalary / 2);
         }
 
         return averageSalary * PERCENT_OF_PENSION;
+
 
     }
 

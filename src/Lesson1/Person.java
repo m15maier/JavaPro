@@ -1,7 +1,5 @@
 package Lesson1;
 
-import java.util.Objects;
-
 public abstract class Person {
 
     String name;
@@ -10,21 +8,20 @@ public abstract class Person {
     int weight;
     private double money;
     int years;
-
-    private Gender gender;
-
-    private Person dad;
-
+    public Gender gender;
     public Gender getGender() {
         return gender;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "gender=" + gender +
-                '}';
+    public Person(String name, int age, int height, int weight, double money, Gender gender) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
+        this.weight = weight;
+        this.money = money;
+        this.gender = gender;
     }
+
 
     public abstract void die(int years);
 
@@ -40,15 +37,15 @@ public abstract class Person {
         if (weight != person.weight) return false;
         if (Double.compare(person.money, money) != 0) return false;
         if (years != person.years) return false;
-        if (!Objects.equals(name, person.name)) return false;
-        return gender.equals(person.gender);
+        if (!name.equals(person.name)) return false;
+        return gender == person.gender;
     }
 
     @Override
     public int hashCode() {
         int result;
         long temp;
-        result = name != null ? name.hashCode() : 0;
+        result = name.hashCode();
         result = 31 * result + age;
         result = 31 * result + height;
         result = 31 * result + weight;
@@ -57,6 +54,20 @@ public abstract class Person {
         result = 31 * result + years;
         result = 31 * result + gender.hashCode();
         return result;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", money=" + money +
+                ", years=" + years +
+                ", gender=" + gender +
+                '}';
     }
 
     public void setGender(Gender gender) {
@@ -95,14 +106,7 @@ public abstract class Person {
 
 
 
-    public Person(String name, int age, int height, int weight, int money, Gender gender) {
-        this.name = name;
-        this.age = age;
-        this.height = height;
-        this.weight = weight;
-        this.money = money;
-        this.gender = gender;
-    }
+
 
     public void info() {
         System.out.println("Имя: " + name);
@@ -119,6 +123,10 @@ public abstract class Person {
             System.out.println("Работаю");
         }
     }
+    public void die() {
+        System.out.println("Человек погиб");
+    }
+
 
     public double money() { return money;
     }
@@ -127,9 +135,6 @@ public abstract class Person {
 
     public abstract double calculatePension(Gender gender);
 
-    public void die() {
-        System.out.println("Человек погиб");
-    }
 
 
     public abstract double calculatorPension();

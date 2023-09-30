@@ -1,36 +1,40 @@
 package Lesson1;
 
-import java.util.Date;
+import java.util.List;
 
 public class PensionFund {
 
-    public String name;
-    public boolean state;
-    public Date date;
-    private int users;
+    private String name;
+    private boolean state;
+    private final String date;
+    private List<Worker> persons;
 
-    public PensionFund(String name, boolean state, Date date, int users) {
+
+    public List<Worker> getPersons() {
+        return persons;
+    }
+
+    public void setPersons(List<Worker> persons) {
+        this.persons = persons;
+    }
+
+    public PensionFund(String name, boolean state, String date, int users) {
         this.name = name;
         this.state = state;
         this.date = date;
-        this.users = users;
+        this.persons = persons;
     }
 
 
     public String getName() {
         return name;
     }
-
     private boolean isTrue() {
         return state;
     }
 
-    private Date getDate() {
+    private String getDate() {
         return date;
-    }
-
-    private int getUsers() {
-        return users;
     }
 
     private void setName(String name) {
@@ -41,22 +45,31 @@ public class PensionFund {
         state = aTrue;
     }
 
-    private void setUsers(int users) {
-        this.users = users;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PensionFund)) return false;
+
+        PensionFund that = (PensionFund) o;
+
+        return persons.equals(that.persons);
+    }
+
+    @Override
+    public int hashCode() {
+        return persons.hashCode();
     }
 
     public void info() {
         System.out.println("Называние фонда: " + name);
-        System.out.println("Дата создания: " + date);
-    }
 
-    public void go() {
+        int count = (persons != null) ? persons.size() : 0;
+
         if (state) {
-            System.out.println("Фонд государственный");
-            System.out.println("Количество участников: " + users / 1000 + " тысяч человек");
-        }
-        else {
-            System.out.println("Количество участников: " + users + " человек");
+            System.out.println("Количество участников: " + persons.size() / 1000 + " тысяч человек");
+        } else {
+            System.out.println("Количество участников: " + persons.size() + " человек");
         }
     }
 
@@ -65,39 +78,19 @@ public class PensionFund {
             return obj.calculatePension();
         } else {
             System.out.println("Деньги из фонда украли.");
-            return 0;
+            return 0.0;
         }
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof PensionFund)) return false;
+    public double calculateMedianPension() {
+        if (persons == null || persons.size() == 0) {
+            return 0.0;
+        }
+        double sum = 0.0;
 
-        PensionFund pension = (PensionFund) o;
-
-        if (state != pension.state) return false;
-        if (users != pension.users) return false;
-        if (!name.equals(pension.name)) return false;
-        return date.equals(pension.date);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + (state ? 1 : 0);
-        result = 31 * result + date.hashCode();
-        result = 31 * result + users;
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Pension{" +
-                "name='" + name + '\'' +
-                ", state=" + state +
-                ", date=" + date +
-                ", users=" + users +
-                '}';
+        for (Worker worker : persons) {
+            sum += calculatePensionFor(worker);
+        }
+        return sum / persons.size();
     }
 }
