@@ -1,4 +1,4 @@
-package Lesson1;
+package PensionFund1;
 
 public enum Gender {
     MALE,
