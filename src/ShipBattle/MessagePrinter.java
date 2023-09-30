@@ -24,5 +24,6 @@ public class MessagePrinter {
 
     public void printEndGame() {
         System.out.println("Вы поразили " + value + " целей");
+
     }
 }
